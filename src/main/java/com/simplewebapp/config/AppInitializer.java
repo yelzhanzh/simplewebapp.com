@@ -1,4 +1,4 @@
-package com.simplewebapp.springmvc.config;
+package com.simplewebapp.config;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -16,7 +16,7 @@ public class AppInitializer implements WebApplicationInitializer {
   public void onStartup(ServletContext container) throws ServletException {
 
     AnnotationConfigWebApplicationContext ctx = new AnnotationConfigWebApplicationContext();
-    ctx.register(TestConfiguration.class);
+    ctx.register(AppConfig.class);
     ctx.setServletContext(container);
 
     ServletRegistration.Dynamic servlet = container.addServlet("dispatcher", new DispatcherServlet(ctx));
