@@ -1,22 +1,16 @@
 package com.simplewebapp.config;
 
 import java.util.Properties;
-
-import javax.activation.DataSource;
 import javax.annotation.Resource;
 
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.*;
 import org.springframework.core.env.Environment;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
-import org.springframework.jdbc.datasource.embedded.EmbeddedDatabase;
-import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
-import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType;
-import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 /**
  * Created by Zhangariny on 07/07/2015.
@@ -24,7 +18,8 @@ import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 
 @Configuration
 @EnableTransactionManagement
-@EnableJpaRepositories("com.simplewebapp")
+@PropertySource("classpath:application.properties")
+@ComponentScan(basePackages = "com.simplewebapp.config")
 public class DataBaseConfig {
 
   private static final String DATABASE_DRIVER = "db.driver";
@@ -52,16 +47,21 @@ public class DataBaseConfig {
 
   @Bean
   public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
+    HibernateJpaVendorAdapter hibernateJpaVendorAdapter = new HibernateJpaVendorAdapter();
+    hibernateJpaVendorAdapter.setGenerateDdl(true);
+    hibernateJpaVendorAdapter.setDatabasePlatform("org.hibernate.dialect.H2Dialect");
+
     LocalContainerEntityManagerFactoryBean entityManagerFactoryBean = new LocalContainerEntityManagerFactoryBean();
     entityManagerFactoryBean.setDataSource(dataSource());
-    entityManagerFactoryBean.setJpaVendorAdapter(new HibernateJpaVendorAdapter());
+    entityManagerFactoryBean.setJpaVendorAdapter(hibernateJpaVendorAdapter);
     entityManagerFactoryBean.setPackagesToScan(environment.getRequiredProperty(ENTITYMANAGER_PACKAGES_TO_SCAN));
-    entityManagerFactoryBean.setJpaProperties(jpaProperties());
+    entityManagerFactoryBean.setJpaProperties(hibernateProperties());
+    entityManagerFactoryBean.afterPropertiesSet();
 
     return entityManagerFactoryBean;
   }
 
-  private Properties jpaProperties() {
+  private Properties hibernateProperties() {
     Properties properties = new Properties();
     properties.put(HIBERNATE_DIALECT, environment.getRequiredProperty(HIBERNATE_DIALECT));
     properties.put(HIBERNATE_SHOW_SQL, environment.getRequiredProperty(HIBERNATE_SHOW_SQL));

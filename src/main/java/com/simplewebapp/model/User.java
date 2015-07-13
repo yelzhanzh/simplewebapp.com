@@ -1,18 +1,35 @@
 package com.simplewebapp.model;
 
+import java.io.Serializable;
 import javax.persistence.*;
 
 /**
  * Created by Zhangariny on 10/07/2015.
  */
 @Entity
-@Table(name="users")
-public class User {
+@Table(name="USERS")
+public class User implements Serializable {
 
   @Id
   @Column(name="ID")
   @GeneratedValue
   private Integer id;
+
+  @Column(name="FIRST_NAME")
+  private String firstName;
+
+  @Column(name="LAST_NAME")
+  private String lastName;
+
+  public User() {
+
+  }
+
+  public User(String firstName, String lastName) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+  }
+
 
   public String getFirstName() {
     return firstName;
@@ -30,12 +47,6 @@ public class User {
     this.lastName = lastName;
   }
 
-  @Column(name="FIRSTNAME")
-  private String firstName;
-
-  @Column(name="LASTNAME")
-  private String lastName;
-
   public Integer getId() {
     return id;
   }
@@ -44,5 +55,7 @@ public class User {
     this.id = id;
   }
 
+  @Override
+  public String toString() { return firstName + " " + lastName;}
 
 }

@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <html>
 <head>
   <title></title>
@@ -14,16 +15,16 @@
 
 <h1>Add team page</h1>
 <p>Here you can add a new team.</p>
-<form:form method="POST" commandname="team" action="${pageContext.request.contextPath}/team/add/process.html">
+<form:form method="POST" commandName="user" action="${pageContext.request.contextPath}/user/add/process">
   <table>
     <tbody>
     <tr>
-      <td>Name:</td>
-      <td><form:input path="name"></form:input></td>
+      <td>First Name:</td>
+      <td><form:input path="firstName"></form:input></td>
     </tr>
     <tr>
-      <td>Rating:</td>
-      <td><form:input path="rating"></form:input></td>
+      <td>Last Name:</td>
+      <td><form:input path="lastName"></form:input></td>
     </tr>
     <tr>
       <td><input type="submit" value="Add"></td>
@@ -33,7 +34,7 @@
   </table>
 </form:form>
 
-<p><a href="${pageContext.request.contextPath}/index.html">Home page</a></p>
+<p><a href="${pageContext.request.contextPath}/index.jsp">Home page</a></p>
 
 </body>
 </html>
