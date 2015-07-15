@@ -15,8 +15,8 @@
 <h1>Home page</h1>
 <p>
   ${message}<br>
-  <a href="${pageContext.request.contextPath}/user/add">Add new team</a><br>
-  <a href="${pageContext.request.contextPath}/user/list">Team list</a><br>
+  <a href="${pageContext.request.contextPath}/user/add">Add new user</a><br>
+  <a href="${pageContext.request.contextPath}/user/list">User list</a><br>
 </p>
 
 </body>

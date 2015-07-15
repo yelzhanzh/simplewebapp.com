@@ -70,7 +70,6 @@
       <version>1.8.1.RELEASE</version>
     </dependency>
 
-
     <!-- JavaX servlet -->
     <dependency>
       <groupId>javax.servlet</groupId>
@@ -82,7 +81,6 @@
       <artifactId>jstl</artifactId>
       <version>1.2</version>
     </dependency>
-
 
     <!-- Logging -->
     <dependency>
@@ -122,18 +120,15 @@
 
     <!-- JSON support -->
     <!--<dependency>-->
-      <!--<groupId>com.fasterxml.jackson.core</groupId>-->
-      <!--<artifactId>jackson-annotations</artifactId>-->
-      <!--<version>2.5.4</version>-->
+    <!--<groupId>com.fasterxml.jackson.core</groupId>-->
+    <!--<artifactId>jackson-annotations</artifactId>-->
+    <!--<version>2.5.4</version>-->
     <!--</dependency>-->
     <!--<dependency>-->
-      <!--<groupId>com.fasterxml.jackson.core</groupId>-->
-      <!--<artifactId>jackson-databind</artifactId>-->
-      <!--<version>2.5.4</version>-->
+    <!--<groupId>com.fasterxml.jackson.core</groupId>-->
+    <!--<artifactId>jackson-databind</artifactId>-->
+    <!--<version>2.5.4</version>-->
     <!--</dependency>-->
-
-
-
 
   </dependencies>
 
@@ -154,6 +149,5 @@
     </pluginManagement>
     <finalName>core</finalName>
   </build>
-
 
 </project>

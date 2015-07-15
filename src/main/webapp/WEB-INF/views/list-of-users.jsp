@@ -13,8 +13,8 @@
 </head>
 <body>
 
-<h1>List of teams</h1>
-<p>Here you can see the list of the teams, edit them, remove or update.</p>
+<h1>List of users</h1>
+<p>Here you can see the list of the users, edit them, remove or update.</p>
 <table border="1">
   <thead>
   <tr>
@@ -39,7 +39,7 @@
   </tbody>
 </table>
 
-<p><a href="${pageContext.request.contextPath}/index">Home page</a></p>
+<p><a href="${pageContext.request.contextPath}/user/">Home page</a></p>
 
 </body>
 </html>
