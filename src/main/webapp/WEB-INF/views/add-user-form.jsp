@@ -15,7 +15,7 @@
 
 <h1>Add user page</h1>
 <p>Here you can add a new user.</p>
-<form:form method="POST" commandName="user" action="${pageContext.request.contextPath}/user/add/process">
+<form:form method="POST" commandName="user" action="${pageContext.request.contextPath}/user/add">
   <table>
     <tbody>
     <tr>

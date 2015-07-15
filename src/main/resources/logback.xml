@@ -21,4 +21,6 @@
     <appender-ref ref="STDOUT" />
   </root>
 
+
+  <!--Do not filter this ${database.username}-->
 </configuration>
