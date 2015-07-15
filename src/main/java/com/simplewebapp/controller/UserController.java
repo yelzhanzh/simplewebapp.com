@@ -2,6 +2,11 @@ package com.simplewebapp.controller;
 
 import java.util.List;
 
+import javax.ws.rs.*;
+
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+
 import com.simplewebapp.model.User;
 import com.simplewebapp.service.UserService;
 import org.slf4j.Logger;
@@ -22,14 +27,21 @@ public class UserController {
   @Autowired
   private UserService userService;
 
-  @RequestMapping(value="/user/add")
+  @RequestMapping(value = "/user/")
+  public ModelAndView homePage() {
+    ModelAndView modelAndView = new ModelAndView("home");
+
+    return modelAndView;
+  }
+
+  @RequestMapping(value = "/user/add")
   public ModelAndView addUserPage() {
     ModelAndView modelAndView = new ModelAndView("add-user-form");
     modelAndView.addObject("user", new User());
     return modelAndView;
   }
 
-  @RequestMapping(value="/user/add/process")
+  @RequestMapping(value = "/user/add/process")
   public ModelAndView addingUser(@ModelAttribute User user) {
 
     ModelAndView modelAndView = new ModelAndView("home");
@@ -41,7 +53,7 @@ public class UserController {
     return modelAndView;
   }
 
-  @RequestMapping(value="/user/list")
+  @RequestMapping(value = "/user/list")
   public ModelAndView listOfUsers() {
     ModelAndView modelAndView = new ModelAndView("list-of-users");
 
@@ -51,7 +63,7 @@ public class UserController {
     return modelAndView;
   }
 
-  @RequestMapping(value="/user/edit/{id}", method = RequestMethod.GET)
+  @RequestMapping(value = "/user/edit/{id}", method = RequestMethod.GET)
   public ModelAndView editUserPage(@PathVariable int id) {
     ModelAndView modelAndView = new ModelAndView("edit-user-form");
     User user = userService.getUser(id);
@@ -74,7 +86,7 @@ public class UserController {
 
   @RequestMapping(value = "/user/delete/{id}", method = RequestMethod.GET)
   public ModelAndView deleteUser(@PathVariable int id) {
-    ModelAndView modelAndView = new ModelAndView("user");
+    ModelAndView modelAndView = new ModelAndView("home");
 
     userService.deleteUser(id);
 
