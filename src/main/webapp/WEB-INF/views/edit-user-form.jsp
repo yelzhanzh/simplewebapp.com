@@ -13,19 +13,19 @@
 </head>
 <body>
 
-<h1>Edit team page</h1>
-<p>Here you can edit the existing team.</p>
+<h1>Edit user page</h1>
+<p>Here you can edit the existing user.</p>
 <p>${message}</p>
-<form:form method="POST" commandname="team" action="${pageContext.request.contextPath}/user/edit/${team.id}">
+<form:form method="POST" commandName="user" action="${pageContext.request.contextPath}/user/edit/${user.id}">
   <table>
     <tbody>
     <tr>
-      <td>Name:</td>
-      <td><form:input path="name"></form:input></td>
+      <td>First Name:</td>
+      <td><form:input path="firstName"></form:input></td>
     </tr>
     <tr>
-      <td>Rating:</td>
-      <td><form:input path="rating"></form:input></td>
+      <td>Last Name:</td>
+      <td><form:input path="lastName"></form:input></td>
     </tr>
     <tr>
       <td><input type="submit" value="Edit"></td>
@@ -35,7 +35,7 @@
   </table>
 </form:form>
 
-<p><a href="${pageContext.request.contextPath}/index">Home page</a></p>
+<p><a href="${pageContext.request.contextPath}/user/">Home page</a></p>
 
 </body>
 </html>
