@@ -21,7 +21,6 @@ public class UserServiceImpl implements UserService {
   private UserDAO userDAO;
 
   public void addUser(User user) {
-    //TODO do some checks before "insert"
     userDAO.addUser(user);
   }
 

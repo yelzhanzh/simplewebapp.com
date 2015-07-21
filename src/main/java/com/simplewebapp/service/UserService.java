@@ -9,14 +9,14 @@ import com.simplewebapp.model.User;
  */
 public interface UserService {
 
-  void addUser(User user);
+  public void addUser(User user);
 
-  void updateUser(User user);
+  public void updateUser(User user);
 
-  User getUser(int id);
+  public User getUser(int id);
 
-  void deleteUser(int id);
+  public void deleteUser(int id);
 
-  List<User> getUsers();
+  public List<User> getUsers();
 
 }
