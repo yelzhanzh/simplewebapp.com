@@ -13,9 +13,9 @@
 </head>
 <body>
 
-<h1>Add team page</h1>
-<p>Here you can add a new team.</p>
-<form:form method="POST" commandName="user" action="${pageContext.request.contextPath}/user/add/process">
+<h1>Add user page</h1>
+<p>Here you can add a new user.</p>
+<form:form method="POST" commandName="user" action="${pageContext.request.contextPath}/user/add">
   <table>
     <tbody>
     <tr>
@@ -34,7 +34,7 @@
   </table>
 </form:form>
 
-<p><a href="${pageContext.request.contextPath}/index.jsp">Home page</a></p>
+<p><a href="${pageContext.request.contextPath}/user/">Home page</a></p>
 
 </body>
 </html>
