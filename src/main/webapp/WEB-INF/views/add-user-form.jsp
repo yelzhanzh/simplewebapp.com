@@ -34,7 +34,7 @@
   </table>
 </form:form>
 
-<p><a href="${pageContext.request.contextPath}/index.jsp">Home page</a></p>
+<p><a href="${pageContext.request.contextPath}/user/">Home page</a></p>
 
 </body>
 </html>
