@@ -1,10 +1,7 @@
 package com.simplewebapp.config;
 
-import java.util.HashMap;
-import java.util.Map;
 import javax.annotation.Resource;
 
-import org.jboss.resteasy.spi.ResteasyDeployment;
 import org.springframework.context.annotation.*;
 import org.springframework.core.env.Environment;
 import org.springframework.web.servlet.ViewResolver;
@@ -39,18 +36,6 @@ public class AppConfig extends WebMvcConfigurerAdapter {
     viewResolver.setSuffix(".jsp");
 
     return viewResolver;
-  }
-
-  @Bean(initMethod = "start", destroyMethod = "stop")
-  public ResteasyDeployment resteasyDeployment() {
-    ResteasyDeployment resteasyDeployment = new ResteasyDeployment();
-    resteasyDeployment.setAsyncJobServiceEnabled(true);
-    Map mediaTypeMapping = new HashMap();
-    mediaTypeMapping.put("json", "application/json");
-    mediaTypeMapping.put("xml", "application/xml");
-    resteasyDeployment.setMediaTypeMappings(mediaTypeMapping);
-    return  resteasyDeployment;
-
   }
 
 }
